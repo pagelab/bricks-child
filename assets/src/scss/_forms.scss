@@ -1,0 +1,186 @@
+/**
+ *
+ * Form styles.
+ *
+ */
+.epc-form {
+
+    // Override Bricks unneeded transition.
+    input,
+    select,
+    textarea {
+        transition: unset;
+    }
+
+    --button-width: 16rem;
+
+    label {
+        margin-bottom: 0;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        row-gap: var(--space-6xs );
+    }
+
+    .epc-form-grid {
+
+        display: flex;
+        align-items: flex-end;
+        gap: var(--space-3xs);
+
+        &:has(.error-visible) {
+            padding-bottom: 4.5rem
+        }
+
+        > p > label {
+            position: relative;
+        }
+
+        > p:first-of-type {
+            width: calc( 100% - calc( var(--button-width) + calc( var(--space-3xs ) * 2.5 ) ) );
+            max-width: 45rem;
+        }
+
+        > p:last-of-type {
+            position: relative;
+            min-width: var(--button-width);
+            text-align: left;
+
+            &:after {
+                content: '➜';
+                position: absolute;
+                right: 2ch;
+                top: calc(50% - 1.25ch);
+                opacity: .5
+            }
+        }
+
+        .wpcf7-not-valid-tip.error-visible {
+            top: 12.3rem;
+        }
+
+         @media screen and (min-width: 481px) {
+            .wpcf7-not-valid-tip.error-visible {
+                top: 7.7rem;
+            }
+
+            @media screen and (min-width: 768px) and (max-width: 960px) {
+                .wpcf7-not-valid-tip.error-visible {
+                    top: 12.3rem;
+                }
+            }
+         }
+    }
+
+    .epc-form-consent {
+
+        position: relative;
+        margin-top: var(--space-s);
+
+        .wpcf7-form-control-wrap {
+            padding-left: 0;
+
+            .wpcf7-form-control.wpcf7-acceptance {
+                padding-left: 0;
+                border: none;
+                background-color: transparent;
+
+                label {
+                    padding-left: 2rem;
+                    text-indent: -1.7rem;
+                    max-width: 45ch;
+
+                    input {
+                        position: relative;
+                        top: 0.2rem;
+                    }
+                }
+            }
+
+            &[data-name] {
+                margin-top: 0
+            }
+        }
+
+        .wpcf7-not-valid-tip.error-visible {
+            top: 2.6rem;
+        }
+    }
+
+    .wpcf7-not-valid-tip.error-visible {
+        position: absolute;
+        left: 0;
+        width: 100% !important;
+        text-indent: 0;
+    }
+
+    .wpcf7-spinner {
+        position: absolute;
+        scale: .6;
+        right: var(--space-4xs);
+        top: calc(50% - 12px);
+        background-color: var(--bg-body);
+        margin: 0;
+        opacity: 1;
+        z-index: 1;
+
+        &:before {
+            background-color: var(--primary);
+        }
+    }
+
+    .wpcf7-list-item {
+
+        margin: var(--space-s) 0 0 0;
+
+        .wpcf7-list-item-label {
+            padding-left: .5rem;
+            font-size: var(--text-xs);
+            line-height: var(--line-height-s)
+        }
+    }
+
+    .wpcf7-form-control.wpcf7-submit {
+        width: 100%;
+        line-height: 41px;
+    }
+
+    .sent .wpcf7-response-output {
+        font-size: var(--text-xs);
+        background-color: var(--tertiary-20);
+        color: var(--tertiary-l-7);
+        padding: var(--space-3xs) var(--space-4xs) var(--space-3xs) var(--space-xs);
+        border-color: var(--tertiary-20) !important; // Overriding CF7
+    }
+
+    @media screen and (max-width: 380px) {
+        .epc-form-grid {
+            flex-direction: column;
+
+            & > p,
+            & input {
+                width: 100% !important;
+            }
+        }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 960px) {
+       .epc-form-grid {
+            flex-direction: column;
+
+            .wpcf7-not-valid-tip,
+            .wpcf7-valid-tip {
+                top: 9.3rem;
+                width: 100% !important;
+            }
+
+            & > p,
+            & input {
+                width: 100% !important;
+                border-radius: var(--radius-xs) !important
+            }
+        }
+    }
+}

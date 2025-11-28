@@ -1,0 +1,160 @@
+/**
+ * Contact Form 7 specific styling.
+ */
+
+.epc-form {
+
+    .wpcf7-form {
+
+        position: relative;
+
+        p {
+            max-width: 100%;
+        }
+
+        &.submitting p > *:not(.wpcf7-spinner) {
+            opacity: .3;
+        }
+
+        &.sent div:not(.wpcf7-response-output) {
+            display: none;
+        }
+
+        .wpcf7-acceptance .wpcf7-list-item {
+            margin-left: 0;
+        }
+
+        .wpcf7-form-control-wrap {
+            min-height: 2.1rem;
+            display: block;
+        }
+
+        .wpcf7-not-valid-tip {
+            position: absolute;
+            color: var(--secondary-60);
+            font-size: var(--text-xs);
+            bottom: calc(var(--space--m) * -1);
+            right: 0;
+        }
+
+        .wpcf7-select[aria-invalid] {
+            background-position: center right 1.5rem;
+        }
+
+        .wpcf7-file {
+            background-position-y: top;
+        }
+
+        input.wpcf7-submit[type="submit"] {
+
+            margin-bottom: calc( var(--space--m) + .2rem);
+
+            &:not([disabled]) {
+                cursor: pointer;
+            }
+
+            @media (max-width: 991px) {
+                margin-top: var(--wp--custom--spacing--65);
+            }
+        }
+
+        // Remove the margin top from the submit button if there's only one field.
+        .epc-form-grid > p + p > input.wpcf7-submit[type="submit"] {
+
+            @media (max-width: 991px) {
+                margin-top: 0;
+            }
+        }
+
+        .wpcf7-list-item {
+            margin: 0 0 0 calc(var(--space--m) * 2);
+
+            label {
+                font-size: var(--text-xs);
+            }
+
+            &.first {
+                margin: 0
+            }
+        }
+
+        .wpcf7-spinner {
+            position: absolute;
+            right: 50%;
+            // bottom: var(--space-m);
+            top: calc(50% - var(--space-l));
+        }
+
+        .epc-form-consent {
+            display: flex;
+            justify-content: center;
+            margin-bottom: var(--space--m);
+
+            p {
+                max-width: 65ch
+            }
+
+            label {
+                text-align: center;
+            }
+        }
+
+
+        // Messages
+        .wpcf7-response-output {
+            margin: var(--space-2xs) 0;
+            padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--40) var(--wp--preset--spacing--20) var(--space-l);
+            border: thin solid var(--primary-80);
+            border-left: var(--wp--custom--border--huge) solid;
+            border-radius: var(--radius-m);
+            color: var(--wp--preset--color--primary);
+            background-color: var(--primary-10);
+            background-position: center left 0.75rem;
+            background-size: 1rem auto;
+            background-repeat: no-repeat;
+            font-size: var(--text-xs);
+            display: flex;
+            align-items: center;
+            align-content: center;
+            flex-wrap: wrap;
+        }
+
+        &.init .wpcf7-response-output {
+            display: none;
+        }
+
+        &:is(.sent) .wpcf7-response-output {
+            background-image: var(--icon-valid);
+            border-color: var(--primary-80);
+        }
+
+        &:is(.invalid, .unaccepted, .spam, .failed, .aborted) .wpcf7-response-output {
+            background-color: var(--wp--preset--color--error-100);
+            color: var(--secondary-60);
+            background-image: var(--icon-invalid);
+            border-color: var(--secondary-60);
+        }
+    }
+
+    .wp-block-contact-form-7-contact-form-selector:not(:has(ul)),
+    .wpcf7-contact-form-not-found {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .wp-block-contact-form-7-contact-form-selector {
+        ul {
+            padding: 0;
+        }
+
+        @media (max-width: 599px) {
+            max-width: 100%;
+        }
+
+        @media (min-width: 991px) and (max-width: 1199px) {
+            max-width: 100%;
+        }
+
+
+    }
+}

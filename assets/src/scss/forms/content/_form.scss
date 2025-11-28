@@ -1,0 +1,287 @@
+/**
+ * Form elements
+ */
+
+// Reboot based on :
+// - normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css
+// - sanitize.css v13.0.0 | CC0 1.0 Universal | github.com/csstools/sanitize.css
+// ––––––––––––––––––––
+.epc-form {
+
+    // 1. Change the font styles in all browsers
+    // 2. Remove the margin in Firefox and Safari
+    input,
+    optgroup,
+    select,
+    textarea {
+        margin: 0; // 2
+        font-size: var(--text-xs); // 1
+        line-height: var(--line-height-s); // 1
+        font-family: inherit; // 1
+        letter-spacing: inherit; // 2
+    }
+
+    // Remove the inheritance of text transform in Edge adn Firefox.
+    select {
+        text-transform: none;
+    }
+
+    // 1. Correct the text wrapping in Edge.
+    // 2. Remove the padding so developers are not caught out when they zero out
+    // `fieldset` elements in all browsers
+    legend {
+        max-width: 100%; // 1
+        padding: 0; // 3
+        white-space: normal; // 1
+    }
+
+    // Remove the inner border and padding of focus outlines in Firefox
+    ::-moz-focus-inner {
+        padding: 0;
+        border-style: none;
+    }
+
+    //  Remove the focus outline in Firefox
+    :-moz-focusring {
+        outline: none;
+    }
+
+    // Remove the additional :invalid styles in Firefox
+    :-moz-ui-invalid {
+        box-shadow: none;
+    }
+
+    // Pico
+    // ––––––––––––––––––––
+
+    // Force height for alternatives input types
+    input:not([type="checkbox"], [type="radio"], [type="range"]) {
+        height: calc((1rem * var(--line-height-m)) + var(--space-m) + var(--border--small));
+    }
+
+    // Fieldset
+    fieldset {
+        margin: 0;
+        margin-bottom: var(--space--m);
+        padding: 0;
+        border: 0;
+    }
+
+    // Label & legend
+    label,
+    fieldset legend {
+        display: block;
+        margin-bottom: var(--space-2xs);
+        font-weight: normal;
+    }
+
+    // Blocks, 100%
+    input:not([type="checkbox"], [type="radio"]),
+    select,
+    textarea {
+        width: 100%;
+    }
+
+    // Reset appearance (Not Checkboxes, Radios, Range and File)
+    input:not([type="checkbox"], [type="radio"], [type="range"], [type="file"]),
+    select,
+    textarea {
+        appearance: none;
+        padding: var(--space--s);
+    }
+
+    // Commons styles
+    input,
+    select,
+    textarea {
+        border: var(--border-thin) solid var(--secondary-60);
+        border-radius: var(--radius-m);
+        outline: none;
+        background-color: var(--bg-body);
+        box-shadow: none;
+        color: var(--bg-body-reverse);
+        font-weight: normal;
+
+        @if $enable-transitions {
+            transition: background-color var(--wp--custom--transition--default),
+                border-color var(--wp--custom--transition--default), color var(--wp--custom--transition--default),
+                box-shadow var(--wp--custom--transition--default);
+        }
+    }
+
+    input[type="file"] {
+        border: 0;
+        padding-left: 0 !important;
+        background-color: transparent;
+    }
+
+    input[type="submit"] {
+        font-size: var(--text-xs);
+        line-height: var(--line-height-s);
+        background-color: var(--primary-80);
+        color: var(--bg-body);
+        border-color: var(--primary-80);
+        border-radius: var(--radius-xl);
+    }
+
+    input[disabled] {
+        opacity: var(--wp--custom--opacity--60);
+    }
+
+    // Active & Focus
+    :where(input:not([type="submit"], [type="button"], [type="reset"], [type="checkbox"], [type="radio"], [readonly])),
+    :where(select, textarea) {
+        &:is(:active, :focus) {
+            background-color: var(--primary-10);
+        }
+    }
+
+    // Active & Focus
+    :where(input:not([type="submit"], [type="button"], [type="reset"], [role="switch"], [readonly])),
+    :where(select, textarea) {
+        &:is(:active, :focus) {
+            border-color: var(--wp--preset--color--primary);
+        }
+    }
+
+    // Focus
+    :where(input:not([type="submit"], [type="button"], [type="reset"], [type="range"], [type="file"], [readonly])),
+    :where(select, textarea) {
+        &:focus {
+            box-shadow: 0 0 0 var(--wp--custom--border--large) var(--primary-30);
+        }
+    }
+
+    // Disabled
+    :where(input:not([type="submit"], [type="button"], [type="reset"])[disabled]),
+    :where(select[disabled], textarea[disabled]),
+    :where(fieldset[disabled]) :is(input:not([type="submit"], [type="button"], [type="reset"]), select, textarea) {
+        opacity: var(--opacity-50);
+        pointer-events: none;
+    }
+
+    // Invalid
+    :where(input, select, textarea) {
+        &:not([type="checkbox"], [type="radio"], [type="date"], [type="datetime-local"], [type="month"], [type="time"], [type="week"]) {
+            &[aria-invalid] {
+                @if $enable-important {
+                    padding-right: var(--wp--custom--spacing--65) !important;
+                    padding-left: var(--space--s);
+                    padding-inline-start: var(--space--s) !important;
+                    padding-inline-end: var(--wp--custom--spacing--65) !important;
+                }
+
+                @else {
+                    padding-right: var(--wp--custom--spacing--65);
+                    padding-left: var(--space--s);
+                    padding-inline-start: var(--space--s);
+                    padding-inline-end: var(--wp--custom--spacing--65);
+                }
+
+                background-position: center right 0.75rem;
+                background-size: 1rem auto;
+                background-repeat: no-repeat;
+            }
+
+            &[aria-invalid="true"] { // Invalid.
+                background-image: var(--icon-invalid);
+            }
+        }
+
+        &[aria-invalid="true"] { // Invalid.
+            border-color: var(--secondary-60);
+            color: var(--secondary-60);
+
+            &:is(:active, :focus) {
+                @if $enable-important {
+                    border-color: var(--secondary-60) !important;
+                    background-color: var(--wp--preset--color--error-100) !important;
+                    box-shadow: 0 0 0 var(--wp--custom--border--large) var(--wp--preset--color--error-300) !important;
+                }
+
+                @else {
+                    border-color: var(--secondary-60);
+                    background-color: var(--wp--preset--color--error-100);
+                    box-shadow: 0 0 0 var(--wp--custom--border--large) var(--wp--preset--color--error-300);
+                }
+            }
+        }
+    }
+
+    [dir="rtl"] {
+        :where(input, select, textarea) {
+            &:not([type="checkbox"], [type="radio"]) {
+                &:is([aria-invalid], [aria-invalid="true"], [aria-invalid="false"]) {
+                    background-position: center left 0.75rem;
+                }
+            }
+        }
+    }
+
+    // Placeholder
+    input::placeholder,
+    input::-webkit-input-placeholder,
+    textarea::placeholder,
+    textarea::-webkit-input-placeholder,
+    select:invalid {
+        color: var(--secondary-60);
+        opacity: 1;
+    }
+
+    // Margin bottom (Not Checkboxes and Radios)
+    input:not([type="checkbox"], [type="radio"]),
+    select,
+    textarea {
+        margin-bottom: var(--space--s);
+    }
+
+    // Select
+    select {
+        &:not([multiple], [size]) {
+            padding-right: var(--wp--custom--spacing--65);
+            padding-left: var(--space--s);
+            padding-inline-start: var(--space--s);
+            padding-inline-end: var(--wp--custom--spacing--65);
+            background-image: var(--icon-chevron);
+            background-position: center right 0.75rem;
+            background-size: 1rem auto;
+            background-repeat: no-repeat;
+        }
+
+        option:checked {
+            background-color: var(--primary-10);
+        }
+    }
+
+    [dir="rtl"] {
+        select {
+            &:not([multiple], [size]) {
+                background-position: center left 0.75rem;
+            }
+        }
+    }
+
+    // Helper
+    $inputs: "input, select, textarea";
+
+    @if ($enable-classes and $enable-grid) {
+        $inputs: $inputs + ", .grid";
+    }
+
+    :where(#{$inputs}) {
+        +small {
+            display: block;
+            width: 100%;
+            margin-top: var(--space--s);
+            margin-bottom: var(--space--m);
+            color: var(--wp--preset--color--contrast-200);
+        }
+    }
+
+    // Styles for Input inside a label
+    label {
+        > :where(input, select, textarea) {
+            margin-top: var(--space-2xs);
+        }
+    }
+}

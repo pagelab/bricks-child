@@ -1,0 +1,23 @@
+/*!
+ * Form styles
+ * Based on Pico CSS v1.5.10 (https://picocss.com)
+ * Copyright 2019-2024 - Licensed under MIT
+ */
+
+// Disable !important
+$enable-important: false;
+
+// Config
+@import "variables";
+
+// Icons
+@import "icons/icons";
+
+// Layout
+@import "layout/grid"; // .grid
+
+// Content
+@import "content/button"; // button
+@import "content/form"; // input, select, textarea, label, fieldset, legend
+@import "content/form-checkbox-radio"; // type=checkbox, type=radio, role=switch
+@import "content/cf7"; // Contact Form 7

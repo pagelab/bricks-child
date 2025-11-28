@@ -1,0 +1,75 @@
+/*
+* Tip from Maxime (Advanced Themer)
+* https://www.youtube.com/watch?v=Wljme0C4LdM
+*/
+
+/* Avoid FUC on frontend*/
+.bricks-is-frontend .animation-trigger {
+  opacity:0;
+}
+
+/* Animated Class*/
+.animate {
+  animation-name: customAnimation;
+  animation-delay: calc(var(--delay, 0) * 200ms);
+  animation-duration: var(--duration, 400ms);
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+/* Fade in – Change translate Origin*/
+.animation--left-to-right {
+  --translate: -20px,0,0;
+}
+.animation--right-to-left {
+  --translate: 20px,0,0;
+}
+.animation--top-to-bottom {
+  --translate: 0,-20px,0;
+}
+.animation--bottom-to-top {
+  --translate: 0,20px,0;
+}
+
+/* Fade in from far */
+.animation--far-left-to-right {
+  --translate: -100px,0,0;
+}
+.animation--far-right-to-left {
+  --translate: 100px,0,0;
+}
+.animation--far-top-to-bottom {
+  --translate: 0,-100px,0;
+}
+.animation--far-bottom-to-top {
+  --translate: 0,100px,0;
+}
+
+/* Fade in from far */
+.animation--very-far-left-to-right {
+  --translate: -600px,0,0;
+}
+.animation--very-far-right-to-left {
+  --translate: 600px,0,0;
+}
+
+/* Spin – Change angle */
+.animation--half-spin {
+  --angle: 180deg;
+}
+.animation--full-spin {
+  --angle: 360deg;
+}
+
+/* Keyframes */
+@keyframes customAnimation{
+  from {
+    transform: translate3d(var(--translate)) rotate(0deg);
+  }
+  to {
+    opacity: var(--opacity, 1);
+    transform: translate3d(0,0,0) rotate(var(--angle, 0deg));
+  }
+}
+
+

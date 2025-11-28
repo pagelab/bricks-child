@@ -1,0 +1,180 @@
+/**
+ * Button
+ */
+
+// Reboot based on :
+// - normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css
+// - sanitize.css v13.0.0 | CC0 1.0 Universal | github.com/csstools/sanitize.css
+// ––––––––––––––––––––
+
+// 1. Change the font styles in all browsers
+// 2. Remove the margin on controls in Safari
+// 3. Show the overflow in Edge
+.epc-form {
+    button {
+      margin: 0; // 2
+      overflow: visible; // 3
+      font-family: inherit; // 1
+      text-transform: none; // 1
+    }
+
+    // Correct the inability to style buttons in iOS and Safari
+    button,
+    [type="button"],
+    [type="reset"],
+    [type="submit"] {
+      -webkit-appearance: button;
+    }
+
+    // Pico
+    // ––––––––––––––––––––
+
+    button {
+      display: block;
+      width: 100%;
+      margin-bottom: var(--space--m);
+    }
+
+    [role="button"] {
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    button,
+    input[type="submit"],
+    input[type="button"],
+    input[type="reset"],
+    [role="button"] {
+      padding: var(--space--s);
+      border: var(--border-thin) solid var(--secondary-60);
+      border-radius: var(--radius-m);
+      outline: none;
+      background-color: var(--bg-body);
+      box-shadow: var(--wp--custom--box-shadow--default);
+      color: var(--secondary-60);
+      font-weight: normal;
+      font-size: 1rem;
+      line-height: var(--line-height-s);
+      text-align: center;
+      cursor: pointer;
+
+      @if $enable-transitions {
+        transition: background-color var(--wp--custom--transition--default),
+          border-color var(--wp--custom--transition--default), color var(--wp--custom--transition--default),
+          box-shadow var(--wp--custom--transition--default);
+      }
+
+      &:is([aria-current], :hover, :active, :focus) {
+        background-color: var(--primary-10);
+        border-color: var(--primary-10);
+        box-shadow: var(--wp--custom--box-shadow--default);
+        color: var(--bg-body);
+      }
+
+      &:focus {
+        box-shadow: var(--wp--custom--box-shadow--default),
+          0 0 0 var(--border--medium) var(--primary-10);
+      }
+    }
+
+    // .secondary, .contrast & .outline
+    @if $enable-classes {
+
+      // Secondary
+      :is(button, input[type="submit"], input[type="button"], [role="button"]).secondary,
+      input[type="reset"] {
+        background-color: var(--secondary);
+        border-color: var(--secondary);
+        color: var(--bg-body);
+        cursor: pointer;
+
+        &:is([aria-current], :hover, :active, :focus) {
+          background-color: var(--secondary-80);
+          border-color: var(--secondary-80);
+          color: var(--bg-body);
+        }
+
+        &:focus {
+          box-shadow: var(--wp--custom--box-shadow--default),
+            0 0 0 var(--border--medium) var(--secondary-60);
+        }
+      }
+
+      // Contrast
+      :is(button, input[type="submit"], input[type="button"], [role="button"]).contrast {
+        background-color: var(--bg-body-reverse);
+        border-color: var(--bg-body-reverse);
+        color: var(--bg-body);
+
+        &:is([aria-current], :hover, :active, :focus) {
+          background-color: var(--wp--preset--color--contrast-800);
+          border-color: var(--wp--preset--color--contrast-800);
+          color: var(--bg-body);
+        }
+
+        &:focus {
+          box-shadow: var(--wp--custom--box-shadow--default),
+            0 0 0 var(--border--medium) var(--wp--preset--color--contrast-600);
+        }
+      }
+
+      // Outline (primary)
+      :is(button, input[type="submit"], input[type="button"], [role="button"]).outline,
+      input[type="reset"].outline {
+        background-color: transparent;
+        color: var(--primary-80);
+
+        &:is([aria-current], :hover, :active, :focus) {
+          background-color: transparent;
+          color: var(--primary-10);
+        }
+      }
+
+      // Outline (secondary)
+      :is(button, input[type="submit"], input[type="button"], [role="button"]).outline.secondary,
+      input[type="reset"].outline {
+        color: var(--secondary);
+
+        &:is([aria-current], :hover, :active, :focus) {
+          color: var(--secondary-80);
+        }
+      }
+
+      // Outline (contrast)
+      :is(button, input[type="submit"], input[type="button"], [role="button"]).outline.contrast {
+        color: var(--bg-body-reverse);
+
+        &:is([aria-current], :hover, :active, :focus) {
+          color: var(--wp--preset--color--contrast-800);
+        }
+      }
+    }
+    @else {
+      // Secondary button without .class
+      input[type="reset"] {
+        background-color: var(--secondary);
+        border-color: var(--secondary);
+        color: var(--bg-body);
+        cursor: pointer;
+
+        &:is([aria-current], :hover, :active, :focus) {
+          background-color: var(--secondary-80);
+          border-color: var(--secondary-80);
+        }
+
+        &:focus {
+          box-shadow: var(--wp--custom--box-shadow--default),
+            0 0 0 var(--border--medium) var(--secondary-60);
+        }
+      }
+    }
+
+    // Button [disabled]
+    // Links without href are disabled by default
+    :where(button, [type="submit"], [type="button"], [type="reset"], [role="button"])[disabled],
+    :where(fieldset[disabled]) :is(button, [type="submit"], [type="button"], [type="reset"], [role="button"]),
+    a[role="button"]:not([href]) {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+}

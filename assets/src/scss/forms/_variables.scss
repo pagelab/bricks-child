@@ -1,0 +1,39 @@
+// Config
+// ––––––––––––––––––––
+
+// Enable .classes
+// .classless version if disabled
+$enable-classes: true !default;
+
+// Enable .grid class
+$enable-grid: true !default;
+
+// Enable transitions
+$enable-transitions: true !default;
+
+// Enable overriding with !important
+$enable-important: true !default;
+
+// Responsive
+// ––––––––––––––––––––
+
+// xs: Extra small (portrait phones)
+// sm: Small(landscape phones)
+// md: Medium(tablets)
+// lg: Large(desktops)
+// xl: Extra large (large desktops)
+
+// NOTE:
+// To provide an easy and fine styling on each breakpoint
+// we didn't use @each, @mixin or @include.
+// That means you need to edit each CSS selector file to add a breakpoint
+
+// Breakpoints
+// 'null' disable the breakpoint
+$breakpoints: (
+  xs: 0,
+  sm: 480px,
+  md: 767px,
+  lg: 991px,
+  xl: 1200px,
+) !default;

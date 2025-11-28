@@ -1,0 +1,212 @@
+/**
+ *
+ * General code
+ * This is site dependent.
+ *
+ */
+
+html {
+    background-image: linear-gradient(to right, rgba(11, 0, 39, 0.39) 0%, rgba(11, 0, 39, 0.39) 100%), url('../../../../uploads/outer-space.webp');
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    scroll-behavior: smooth;
+}
+
+html.cf-theme-dark {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0%) 0%, rgba(255, 255, 255, 0%) 100%), url('../../../../uploads/outer-space.webp');
+    background-blend-mode: color;
+}
+
+/* Leadster customization */
+
+body .nld-chatbot.nld-left > .nld-avatar {
+    left: 45px;
+    bottom: 48px;
+}
+
+body .nld-chatbot *,
+body .nld-chatbot .nld-invite-message-text {
+    font-family: var(--font-body) !important;
+}
+
+body .nld-infobar,
+body .nld-chatbot p,
+body .nld-chatbot .nld-ctx .nld-group.nld-left .nld-bubble p,
+body .nld-chatbot .nld-msg .nld-bubble a:not(.reset-chat) {
+    color: var(--text-body) !important;
+}
+
+body .nld-invite-message-text p {
+    color: var(--border-primary-l-3) !important;
+}
+
+body .nld-invite-message-text strong {
+    color: var(--text-body) !important;
+}
+
+body .nld-chatbot .nld-chatbot-invite-message {
+    font-family: var(--font-body) !important;
+    font-size: var(--text-s) !important;
+    background: var(--bg-body);
+    border: 1px solid var(--border-primary-l-1) !important;
+    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.08),0px 2px 2px 0px rgba(0,0,0,0.12),0px 4px 4px 0px rgba(0,0,0,0.16),0px 8px 8px 0px rgba(0,0,0,0.2),inset 0px 27px 33px -2px rgba(255,255,255,0.06);
+}
+
+.cf-theme-dark .nld-chatbot .nld-chatbot-invite-message {
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.08),  0px 2px 2px 0px rgb(0 0 0 / 4%),  0px 4px 4px 0px rgb(0 0 0 / 2%),  0px 8px 8px 0px rgb(0 0 0 / 5%),  inset 0px 17px 13px -12px rgba(255, 255, 255, 0.1)
+}
+
+body .nld-chatbot.nld-left .nld-chatbot-invite-message::after {
+    background: none;
+}
+
+body .nld-chatbot .nld-avatar::after {
+    border: 3px solid var(--bg-body) !important;
+}
+
+body .nld-chatbot .nld-chatbot-invite-container .nld-typing-indicator>span {
+    background: #ffffff99 !important;
+}
+
+body .nld-avatar {
+    box-shadow: inset 0px 0px 8px -2px #ffffff69 !important;
+}
+
+body .nld-chatbot #context>div>.nld-overlay {
+    background: transparent;
+}
+
+body .nld-chatbot .nld-ctx>div>.nld-container {
+    background: #2f0061 !important;
+}
+
+body .nld-chatbot .nld-mobile-brand,
+body .nld-chatbot .nld-brand {
+    display: none !important;
+}
+
+body .nld-chatbot .nld-input > input {
+    color: var(--text-body) !important;
+    border-color: var(--text-body-20) !important;
+    background: var(--text-body-5) !important;
+    border-radius: var(--radius-s) !important;
+}
+
+body .nld-chatbot .nld-sel.nld-multi > .nld-opt {
+    color: var(--text-body) !important;
+    width: 80%;
+    text-align: right;
+    text-wrap: balance;
+}
+
+body .nld-chatbot .nld-sel.nld-multi > .nld-opt.nld-selected {
+    color: var(--text-body-reverse) !important;
+}
+
+body .nld-chatbot .nld-bubble a.reset-chat {
+    text-decoration: none;
+    font-size: 1.3rem !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+body .nld-chatbot .nld-bubble a.reset-chat img {
+    width: 1.6rem !important;
+    bottom: 4px !important;
+    position: relative;
+    font-family: var(--font-headings) !important;
+}
+
+body .nld-chatbot .nld-input > input::placeholder {
+    color: var(--text-body-40) !important;
+}
+
+body .nld-handle {
+    background: var(--text-body-20) !important;
+}
+
+body .nld-chatbot .nld-bg,
+body .nld-conversation-header,
+.nld-row.nld-header,
+.nld-row.nld-title,
+.nld-tooltip-error,
+.nld-timedisplay,
+body .nld-chatbot .nld-ctx > div > .nld-container {
+    background: transparent !important;
+}
+
+body .nld-chatbot .nld-input > .nld-submit.nld-only {
+    padding: .3rem;
+    border-radius: 20rem !important;
+    color: var(--text-body) !important;
+    font-family: var(--font-headings) !important;
+}
+
+body .nld-group.nld-left .nld-bubble {
+    background-color: var(--text-body-10) !important;
+    border: thin solid var(--text-body-10) !important;
+    border-radius: var(--radius-xs) !important;
+    color: var(--text-body) !important;
+}
+
+body .nld-chatbot .nld-close > img {
+    opacity: .6;
+    border-radius: 100%;
+}
+
+body .nld-chatbot.nld-left .nld-conversation {
+    --shadow-color: 259deg 100% 7%;
+    backdrop-filter: blur(25px);
+    background: hsl(265deg 75% 19% / 30%);
+    border: thin solid var(--text-body-20);
+    box-shadow:
+        inset 0px 21px 88px -58px #ffffff45,
+        0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.37),
+        0.8px 1.7px 2.1px -0.8px hsl(var(--shadow-color) / 0.37),
+        2.1px 4.2px 5.3px -1.7px hsl(var(--shadow-color) / 0.37),
+        5.1px 10.2px 12.8px -2.5px hsl(var(--shadow-color) / 0.37);
+}
+
+body .nld-chatbot .nld-msg .nld-bubble {
+    border-radius: 10px !important;
+}
+
+.cf-theme-dark .nld-group.nld-left .nld-bubble,
+.cf-theme-dark .nld-chatbot.nld-left .nld-conversation {
+    background: var(--text-body-5) !important;
+    border-color: var(--text-body-10) !important;
+}
+
+.cf-theme-dark .nld-chatbot .nld-close > img {
+    filter: invert(1);
+}
+
+.cf-theme-dark .nld-chatbot.nld-left .nld-conversation {
+    box-shadow:
+        inset 0px 21px 88px -58px #ffffff26,
+        0.3px 0.5px 0.7px hsl(259deg 100% 7% / 9%),
+        0.8px 1.7px 2.1px -0.8px hsl(259deg 100% 7% / 10%),
+        2.1px 4.2px 5.3px -1.7px hsl(259deg 100% 7% / 7%),
+        5.1px 10.2px 12.8px -2.5px hsl(259deg 100% 7% / 11%);
+}
+
+.cf-theme-dark .nld-chatbot .nld-chatbot-invite-message {
+    background: var(--bg-body);
+    border: 1px solid var(--text-body-30);
+}
+
+.cf-theme-dark .nld-handle {
+    background: var(--primary-10) !important;
+}
+
+.cf-theme-dark .nld-chatbot .nld-input > .nld-submit {
+    opacity: .2;
+}
+
+@media screen and (max-width: 768px) {
+    .particle,
+    .nld-chatbot-invite-container {
+        display: none !important;
+    }
+}
